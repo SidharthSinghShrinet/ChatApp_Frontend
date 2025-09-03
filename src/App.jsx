@@ -35,6 +35,7 @@ const App = () => {
     if(authUser){
       const socket = io(import.meta.env.VITE_BACKEND_URL,{
         withCredentials:true,
+        transports:["websocket","polling"],
         query:{
           userId:authUser._id
         }
