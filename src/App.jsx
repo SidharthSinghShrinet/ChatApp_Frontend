@@ -33,7 +33,8 @@ const App = () => {
   let [socketObj,setSocketObj] = useState(null);
   useEffect(()=>{
     if(authUser){
-      const socket = io('http://localhost:9000',{
+      const socket = io(import.meta.env.VITE_BACKEND_URL,{
+        withCredentials:true,
         query:{
           userId:authUser._id
         }
