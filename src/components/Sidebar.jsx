@@ -14,7 +14,7 @@ const Sidebar = () => {
       let response = await axiosInstance.get("/users/logout");
       if(response.data.success){
         toast.success(response.data.message);
-        navigate("/login");
+        navigate("/login",{replace:true});
         dispatch(setAuthUser(null));
       }
     } catch (error) {
